@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>RSA Encryption</h1>
+
+    <div class="container">
+        <h2>Alphabet to Number</h2>
+        <input type="text" id="alphaToNumInput" maxlength="1" placeholder="Enter a letter (A-Z)">
+        <button id="alphaToNumBtn">Convert</button>
+        <p id="numResult"></p>
+    </div>
+    
+    <div class="container">
+        <h2>Public Key</h2>
+        <input type="number" id="publicN" placeholder="Enter public key modulus (n)">
+        <input type="number" id="publicE" placeholder="Enter public exponent (e)">
+    </div>
+    
+    <div class="container">
+        <h2>Encryption</h2>
+        <input type="number" id="encryptInput" placeholder="Enter a number to encrypt">
+        <button id="encryptBtn">Encrypt</button>
+        <p id="encryptedResult"></p>
+    </div>
+    
+    <a href="index.html">Back to Home</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Decryption</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>RSA Decryption</h1>
+
+    <div class="container">
+        <h2>Private Key</h2>
+        <input type="number" id="privateN" placeholder="Enter private key modulus (n)">
+        <input type="number" id="privateD" placeholder="Enter private exponent (d)">
+    </div>
+    
+    <div class="container">
+        <h2>Decryption</h2>
+        <input type="number" id="decryptInput" placeholder="Enter a number to decrypt">
+        <button id="decryptBtn">Decrypt</button>
+        <p id="decryptedResult"></p>
+    </div>
+    
+
+    <div class="container">
+        <h2>Number to Alphabet</h2>
+        <input type="number" id="numToAlphaInput" placeholder="Enter a number (1-26)">
+        <button id="numToAlphaBtn">Convert</button>
+        <p id="alphaResult"></p>
+    </div>
+
+    <a href="index.html">Back to Home</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
