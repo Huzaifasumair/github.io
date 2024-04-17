@@ -4,20 +4,27 @@ class RSA {
         this.q = 11;
         this.n = this.p * this.q;
         this.phi = (this.p - 1) * (this.q - 1);
-        this.e = 7;
-        this.d = 3;
+        this.e = 7; 
+        this.d = 3; 
     }
 
     encrypt(message) {
-        const charCodes = message.split('').map(char => char.charCodeAt(0));
-        const encryptedChars = charCodes.map(code => Math.pow(code, this.e) % this.n);
-        return encryptedChars.join(' '); // Join encrypted character codes into a single string
+        let encrypted = '';
+        for (let i = 0; i < message.length; i++) {
+            const charCode = message.charCodeAt(i);
+            encrypted += Math.pow(charCode, this.e) % this.n + ' ';
+        }
+        return encrypted.trim();
     }
 
     decrypt(ciphertext) {
-        const encryptedChars = ciphertext.split(' ').map(Number);
-        const decryptedCodes = encryptedChars.map(code => Math.pow(code, this.d) % this.n);
-        return String.fromCharCode(...decryptedCodes); // Convert decrypted character codes back to a string
+        let decrypted = '';
+        const cipherArray = ciphertext.split(' ');
+        for (let i = 0; i < cipherArray.length; i++) {
+            const decryptedCharCode = Math.pow(parseInt(cipherArray[i]), this.d) % this.n;
+            decrypted += String.fromCharCode(decryptedCharCode);
+        }
+        return decrypted;
     }
 }
 
@@ -84,9 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const encryptBtn = document.getElementById('encryptBtn');
     if (encryptBtn) {
         encryptBtn.addEventListener('click', function () {
-            const inputText = document.getElementById('encryptInput').value;
+            const inputText = document.getElementById('encryptInput').value.toUpperCase();
             const rsa = new RSA();
-            const encrypted = rsa.encrypt(inputText);
+            const cryptoContext = new CryptoContext(rsa.encrypt.bind(rsa));
+            const encrypted = cryptoContext.executeStrategy(inputText);
             document.getElementById('encryptedResult').innerText = `Encrypted: ${encrypted}`;
         });
     }
@@ -97,8 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
         decryptBtn.addEventListener('click', function () {
             const inputText = document.getElementById('decryptInput').value;
             const rsa = new RSA();
-            const decrypted = rsa.decrypt(inputText);
+            const cryptoContext = new CryptoContext(rsa.decrypt.bind(rsa));
+            const decrypted = cryptoContext.executeStrategy(inputText);
             document.getElementById('decryptedResult').innerText = `Decrypted: ${decrypted}`;
         });
     }
-});
+}); 
