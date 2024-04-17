@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSA Encryption</title>
+    <title>RSA Cryptosystem</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>RSA Encryption</h1>
+    <h1>Welcome to the Simple RSA Cryptosystem</h1>
+    
+    <div class="container">
+        <p>This website allows you to understand and interact with the RSA encryption and decryption process. You can convert letters to numbers, encrypt and decrypt messages, and convert numbers back to letters.</p>
+    </div>
 
     <div class="container">
-        <h2>Text to Encrypt</h2>
-        <input type="text" id="encryptInput" placeholder="Enter up to 6 letters to encrypt" maxlength="6">
-        <button id="encryptBtn">Encrypt</button>
-        <p id="encryptedResult"></p>
+        <h2>Navigate</h2>
+        <a href="encryption.html">Go to Encryption</a> |
+        <a href="decryption.html">Go to Decryption</a>
     </div>
-    
-    <a href="index.html">Back to Home</a>
+
+    <div class="container">
+        <!-- Input field for alphabet-to-number conversion -->
+        <h2>Alphabet to Number</h2>
+        <input type="text" id="alphaToNumInput" maxlength="6" placeholder="Enter 6 letters (A-Z)">
+    </div>
+
+    <div class="container">
+        <!-- Input field for encryption -->
+        <h2>Encryption</h2>
+        <input type="number" id="encryptInput" placeholder="Enter a 6-digit number to encrypt">
+    </div>
+
+    <div class="container">
+        <!-- Input field for decryption -->
+        <h2>Decryption</h2>
+        <input type="number" id="decryptInput" placeholder="Enter a 6-digit number to decrypt">
+    </div>
+
+    <p>Hello! Test Subject.</p>
 
     <script src="script.js"></script>
 </body>
